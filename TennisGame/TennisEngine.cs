@@ -8,6 +8,7 @@ public class TennisEngine
     {
         { 1, "Fifteen" },
         { 2, "Thirty" },
+        { 3, "Forty" },
     };
 
     public string Score()

@@ -18,6 +18,10 @@ public class TennisEngine
         {
             return "Love Fifteen";
         }
+        if (_secondPlayerScoreTimes == 2)
+        {
+            return "Love Thirty";
+        }
         
         if (_firstPlayerScoreTimes > 0)
         {

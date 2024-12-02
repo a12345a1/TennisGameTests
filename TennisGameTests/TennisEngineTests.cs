@@ -32,6 +32,13 @@ public class TennisEngineTests
         ScoreShouldBe("Thirty Love");
     }
 
+    [Test]
+    public void FortyLove()
+    {
+        GivenFirstPlayerScore(3);
+        ScoreShouldBe("Forty Love");
+    }
+    
     private void GivenFirstPlayerScore(int times)
     {
         for (var i = 0; i < times; i++)

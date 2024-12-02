@@ -17,12 +17,20 @@ public class TennisEngineTests
     {
         ScoreShouldBe("Love All");
     }
-    
+
     [Test]
     public void FifteenLove()
     {
         _tennisEngine.FirstPlayerScore();
         ScoreShouldBe("Fifteen Love");
+    }
+
+    [Test]
+    public void ThirtyLove()
+    {
+        _tennisEngine.FirstPlayerScore();
+        _tennisEngine.FirstPlayerScore();
+        ScoreShouldBe("Thirty Love");
     }
 
     private void ScoreShouldBe(string expected)

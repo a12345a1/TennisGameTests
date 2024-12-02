@@ -1,24 +1,25 @@
+using TennisGame;
+
 namespace TennisGameTests;
 
 public class TennisEngineTests
 {
+    private TennisEngine _tennisEngine;
+
     [SetUp]
     public void Setup()
     {
+        _tennisEngine = new TennisEngine();
     }
 
     [Test]
     public void LoveAll()
     {
-        var tennisEngine = new TennisEngine();
-        Assert.That(tennisEngine.Score(), Is.EqualTo("Love All"));
+        ScoreShouldBe("Love All");
     }
-}
 
-public class TennisEngine
-{
-    public string Score()
+    private void ScoreShouldBe(string expected)
     {
-        return "Love All";
+        Assert.That(_tennisEngine.Score(), Is.EqualTo(expected));
     }
 }

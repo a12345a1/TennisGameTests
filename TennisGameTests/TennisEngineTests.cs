@@ -17,6 +17,13 @@ public class TennisEngineTests
     {
         ScoreShouldBe("Love All");
     }
+    
+    [Test]
+    public void FifteenLove()
+    {
+        _tennisEngine.FirstPlayerScore();
+        ScoreShouldBe("Fifteen Love");
+    }
 
     private void ScoreShouldBe(string expected)
     {

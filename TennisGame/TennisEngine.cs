@@ -2,8 +2,6 @@
 
 public class TennisEngine
 {
-    private int _firstPlayerScoreTimes;
-
     private readonly Dictionary<int, string> _lookupScore = new Dictionary<int, string>()
     {
         { 1, "Fifteen" },
@@ -11,8 +9,16 @@ public class TennisEngine
         { 3, "Forty" },
     };
 
+    private int _firstPlayerScoreTimes;
+    private int _secondPlayerScoreTimes;
+
     public string Score()
     {
+        if (_secondPlayerScoreTimes == 1)
+        {
+            return "Love Fifteen";
+        }
+        
         if (_firstPlayerScoreTimes > 0)
         {
             return $"{_lookupScore[_firstPlayerScoreTimes]} Love";
@@ -28,6 +34,6 @@ public class TennisEngine
 
     public void SecondPlayerScore()
     {
-        throw new NotImplementedException();
+        _secondPlayerScoreTimes++;
     }
 }

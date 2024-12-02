@@ -4,16 +4,19 @@ public class TennisEngine
 {
     private int _firstPlayerScoreTimes;
 
+    private readonly Dictionary<int, string> _lookupScore = new Dictionary<int, string>()
+    {
+        { 1, "Fifteen" },
+        { 2, "Thirty" },
+    };
+
     public string Score()
     {
-        if (_firstPlayerScoreTimes == 1)
+        if (_firstPlayerScoreTimes > 0)
         {
-            return "Fifteen Love";
+            return $"{_lookupScore[_firstPlayerScoreTimes]} Love";
         }
-        if (_firstPlayerScoreTimes == 2)
-        {
-            return "Thirty Love";
-        }
+
         return "Love All";
     }
 

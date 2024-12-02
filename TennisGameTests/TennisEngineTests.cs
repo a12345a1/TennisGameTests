@@ -21,16 +21,23 @@ public class TennisEngineTests
     [Test]
     public void FifteenLove()
     {
-        _tennisEngine.FirstPlayerScore();
+        GivenFirstPlayerScore(1);
         ScoreShouldBe("Fifteen Love");
     }
 
     [Test]
     public void ThirtyLove()
     {
-        _tennisEngine.FirstPlayerScore();
-        _tennisEngine.FirstPlayerScore();
+        GivenFirstPlayerScore(2);
         ScoreShouldBe("Thirty Love");
+    }
+
+    private void GivenFirstPlayerScore(int times)
+    {
+        for (var i = 0; i < times; i++)
+        {
+            _tennisEngine.FirstPlayerScore();
+        }
     }
 
     private void ScoreShouldBe(string expected)

@@ -19,6 +19,6 @@ public class TennisEngine
 {
     public string Score()
     {
-        throw new NotImplementedException();
+        return "Love All";
     }
 }

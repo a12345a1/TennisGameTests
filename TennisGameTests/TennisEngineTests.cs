@@ -45,6 +45,14 @@ public class TennisEngineTests
         _tennisEngine.SecondPlayerScore();
         ScoreShouldBe("Love Fifteen");
     }
+    
+    [Test]
+    public void Love_Thirty()
+    {
+        _tennisEngine.SecondPlayerScore();
+        _tennisEngine.SecondPlayerScore();
+        ScoreShouldBe("Love Thirty");
+    }
 
     private void GivenFirstPlayerScore(int times)
     {

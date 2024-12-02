@@ -25,4 +25,9 @@ public class TennisEngine
     {
         _firstPlayerScoreTimes++;
     }
+
+    public void SecondPlayerScore()
+    {
+        throw new NotImplementedException();
+    }
 }

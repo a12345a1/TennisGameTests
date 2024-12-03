@@ -53,6 +53,14 @@ public class TennisEngineTests
         ScoreShouldBe("Love Thirty");
     }
 
+    [Test]
+    public void Fifteen_All()
+    {
+        GivenFirstPlayerScore(1);
+        GivenSecondPlayerScore(1);
+        ScoreShouldBe("Fifteen All");
+    }
+
     private void GivenSecondPlayerScore(int times)
     {
         for (var i = 0; i < times; i++)

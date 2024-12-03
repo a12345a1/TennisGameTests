@@ -15,17 +15,37 @@ public class TennisEngine
 
     public string Score()
     {
-        if (_secondPlayerScoreTimes != _firstPlayerScoreTimes)
+        if (IsScoreDifferent())
         {
-            return $"{_lookupScore[_firstPlayerScoreTimes]} {_lookupScore[_secondPlayerScoreTimes]}";
+            return LookupScore();
         }
         
-        if (_firstPlayerScoreTimes>=3)
+        if (_firstPlayerScoreTimes >= 3)
         {
-            return "Deuce";
+            return Deuce();
         }
 
+        return SameScore();
+    }
+
+    private string SameScore()
+    {
         return $"{_lookupScore[_firstPlayerScoreTimes]} All";
+    }
+
+    private static string Deuce()
+    {
+        return "Deuce";
+    }
+
+    private string LookupScore()
+    {
+        return $"{_lookupScore[_firstPlayerScoreTimes]} {_lookupScore[_secondPlayerScoreTimes]}";
+    }
+
+    private bool IsScoreDifferent()
+    {
+        return _secondPlayerScoreTimes != _firstPlayerScoreTimes;
     }
 
     public void FirstPlayerScore()

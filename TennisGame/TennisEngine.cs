@@ -12,11 +12,25 @@ public class TennisEngine
 
     private int _firstPlayerScoreTimes;
     private int _secondPlayerScoreTimes;
+    private string _firstPlayerName;
+
+    public TennisEngine(string firstPlayerName)
+    {
+        _firstPlayerName = firstPlayerName;
+    }
 
     public string Score()
     {
         if (IsScoreDifferent())
         {
+            if (_firstPlayerScoreTimes > 3)
+            {
+                if (_firstPlayerScoreTimes - _secondPlayerScoreTimes == 1)
+                {
+                    return $"{_firstPlayerName} Adv";
+                }
+            }
+
             return LookupScore();
         }
         

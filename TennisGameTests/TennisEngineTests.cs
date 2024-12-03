@@ -9,7 +9,7 @@ public class TennisEngineTests
     [SetUp]
     public void Setup()
     {
-        _tennisEngine = new TennisEngine();
+        _tennisEngine = new TennisEngine("Player1");
     }
 
     [Test]

@@ -19,6 +19,11 @@ public class TennisEngine
         {
             return $"{_lookupScore[_firstPlayerScoreTimes]} {_lookupScore[_secondPlayerScoreTimes]}";
         }
+        
+        if (_firstPlayerScoreTimes>=3)
+        {
+            return "Deuce";
+        }
 
         return $"{_lookupScore[_firstPlayerScoreTimes]} All";
     }

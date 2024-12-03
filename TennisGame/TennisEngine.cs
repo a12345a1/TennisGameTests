@@ -25,28 +25,38 @@ public class TennisEngine
     {
         if (IsScoreDifferent())
         {
-            if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
+            if (IsReadyForGamePoint())
             {
-                if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
+                if (IsAdv())
                 {
-                    if (_firstPlayerScoreTimes > _secondPlayerScoreTimes)
-                    {
-                        return $"{_firstPlayerName} Adv";
-                    }
-
-                    return $"{_secondPlayerName} Adv";
+                    return $"{AdvPlayer()} Adv";
                 }
             }
 
             return LookupScore();
         }
 
-        if (_firstPlayerScoreTimes >= 3)
-        {
-            return Deuce();
-        }
+        return IsDeuce() ? Deuce() : SameScore();
+    }
 
-        return SameScore();
+    private bool IsDeuce()
+    {
+        return _firstPlayerScoreTimes >= 3;
+    }
+
+    private bool IsReadyForGamePoint()
+    {
+        return _firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3;
+    }
+
+    private bool IsAdv()
+    {
+        return Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1;
+    }
+
+    private string AdvPlayer()
+    {
+        return _firstPlayerScoreTimes > _secondPlayerScoreTimes ? _firstPlayerName : _secondPlayerName;
     }
 
     private string SameScore()

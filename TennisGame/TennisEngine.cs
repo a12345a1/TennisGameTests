@@ -24,6 +24,11 @@ public class TennisEngine
         {
             return "Fifteen All";
         }
+        
+        if (_firstPlayerScoreTimes == 2)
+        {
+            return "Thirty All";
+        }
 
         return "Love All";
     }

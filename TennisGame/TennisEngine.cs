@@ -20,17 +20,7 @@ public class TennisEngine
             return $"{_lookupScore[_firstPlayerScoreTimes]} {_lookupScore[_secondPlayerScoreTimes]}";
         }
 
-        if (_firstPlayerScoreTimes == 1)
-        {
-            return "Fifteen All";
-        }
-        
-        if (_firstPlayerScoreTimes == 2)
-        {
-            return "Thirty All";
-        }
-
-        return "Love All";
+        return $"{_lookupScore[_firstPlayerScoreTimes]} All";
     }
 
     public void FirstPlayerScore()

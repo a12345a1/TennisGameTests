@@ -25,20 +25,25 @@ public class TennisEngine
     {
         if (IsScoreDifferent())
         {
-            if (IsReadyForGamePoint())
-            {
-                if (IsAdv())
-                {
-                    return $"{AdvPlayer()} Adv";
-                }
-
-                return $"{AdvPlayer()} Win";
-            }
-
-            return LookupScore();
+            return IsReadyForGamePoint() ? AdvState() : LookupScore();
         }
 
         return IsDeuce() ? Deuce() : SameScore();
+    }
+
+    private string AdvState()
+    {
+        return IsAdv() ? AdvScore() : WinScore();
+    }
+
+    private string WinScore()
+    {
+        return $"{AdvPlayer()} Win";
+    }
+
+    private string AdvScore()
+    {
+        return $"{AdvPlayer()} Adv";
     }
 
     private bool IsDeuce()

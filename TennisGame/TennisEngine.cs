@@ -15,9 +15,14 @@ public class TennisEngine
 
     public string Score()
     {
-        if (_secondPlayerScoreTimes > 0 || _firstPlayerScoreTimes > 0)
+        if (_secondPlayerScoreTimes != _firstPlayerScoreTimes)
         {
             return $"{_lookupScore[_firstPlayerScoreTimes]} {_lookupScore[_secondPlayerScoreTimes]}";
+        }
+
+        if (_firstPlayerScoreTimes == 1)
+        {
+            return "Fifteen All";
         }
 
         return "Love All";

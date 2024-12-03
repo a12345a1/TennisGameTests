@@ -68,6 +68,14 @@ public class TennisEngineTests
         GivenSecondPlayerScore(2);
         ScoreShouldBe("Thirty All");
     }
+    
+    [Test]
+    public void Deuce()
+    {
+        GivenFirstPlayerScore(3);
+        GivenSecondPlayerScore(3);
+        ScoreShouldBe("Deuce");
+    }
 
     private void GivenSecondPlayerScore(int times)
     {

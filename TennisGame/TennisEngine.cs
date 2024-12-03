@@ -31,6 +31,8 @@ public class TennisEngine
                 {
                     return $"{AdvPlayer()} Adv";
                 }
+
+                return $"{AdvPlayer()} Win";
             }
 
             return LookupScore();

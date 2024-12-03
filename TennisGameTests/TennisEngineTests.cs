@@ -92,6 +92,14 @@ public class TennisEngineTests
         ScoreShouldBe("Player2 Adv");
     }
     
+    [Test]
+    public void FirstPlayerWin()
+    {
+        GivenDeuce();
+        GivenFirstPlayerScore(2);
+        ScoreShouldBe("Player1 Win");
+    }
+    
     private void GivenDeuce()
     {
         GivenFirstPlayerScore(3);

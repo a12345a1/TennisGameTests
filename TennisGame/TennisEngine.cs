@@ -4,6 +4,7 @@ public class TennisEngine
 {
     private readonly Dictionary<int, string> _lookupScore = new Dictionary<int, string>()
     {
+        { 0, "Love" },
         { 1, "Fifteen" },
         { 2, "Thirty" },
         { 3, "Forty" },
@@ -14,18 +15,9 @@ public class TennisEngine
 
     public string Score()
     {
-        if (_secondPlayerScoreTimes == 1)
+        if (_secondPlayerScoreTimes > 0 || _firstPlayerScoreTimes > 0)
         {
-            return "Love Fifteen";
-        }
-        if (_secondPlayerScoreTimes == 2)
-        {
-            return "Love Thirty";
-        }
-        
-        if (_firstPlayerScoreTimes > 0)
-        {
-            return $"{_lookupScore[_firstPlayerScoreTimes]} Love";
+            return $"{_lookupScore[_firstPlayerScoreTimes]} {_lookupScore[_secondPlayerScoreTimes]}";
         }
 
         return "Love All";

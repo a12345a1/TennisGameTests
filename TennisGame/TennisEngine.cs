@@ -13,27 +13,34 @@ public class TennisEngine
     private int _firstPlayerScoreTimes;
     private int _secondPlayerScoreTimes;
     private string _firstPlayerName;
+    private string _secondPlayerName;
 
-    public TennisEngine(string firstPlayerName)
+    public TennisEngine(string firstPlayerName, string secondPlayerName)
     {
         _firstPlayerName = firstPlayerName;
+        _secondPlayerName = secondPlayerName;
     }
 
     public string Score()
     {
         if (IsScoreDifferent())
         {
-            if (_firstPlayerScoreTimes > 3)
+            if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
             {
-                if (_firstPlayerScoreTimes - _secondPlayerScoreTimes == 1)
+                if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
                 {
-                    return $"{_firstPlayerName} Adv";
+                    if (_firstPlayerScoreTimes > _secondPlayerScoreTimes)
+                    {
+                        return $"{_firstPlayerName} Adv";
+                    }
+
+                    return $"{_secondPlayerName} Adv";
                 }
             }
 
             return LookupScore();
         }
-        
+
         if (_firstPlayerScoreTimes >= 3)
         {
             return Deuce();

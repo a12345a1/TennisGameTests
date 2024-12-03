@@ -9,7 +9,7 @@ public class TennisEngineTests
     [SetUp]
     public void Setup()
     {
-        _tennisEngine = new TennisEngine("Player1");
+        _tennisEngine = new TennisEngine("Player1", "Player2");
     }
 
     [Test]
@@ -91,7 +91,7 @@ public class TennisEngineTests
         GivenSecondPlayerScore(1);
         ScoreShouldBe("Player2 Adv");
     }
-
+    
     private void GivenDeuce()
     {
         GivenFirstPlayerScore(3);
